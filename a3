@@ -1,0 +1,74 @@
+Textbox.js
+import React from 'react';
+function TextBox({ ph }) {
+return (
+ <input
+ type="text"
+ placeholder={ph}
+ />
+);
+}
+export default TextBox;
+
+
+Dropdown.js
+import React from 'react';
+function Dropdown({ options }) {
+return (
+ <select>
+ {options.map((option, index) => (
+ <option key={index} value={option}>
+ {option}
+ </option>
+ ))}
+ </select>
+);
+}
+export default Dropdown;
+
+
+
+SubmitButton.js
+import React from 'react';
+function Button({ label, onClick, style }) {
+return (
+ <button onClick={onClick} style={style}>
+ {label}
+ </button>
+);
+}
+export default Button;
+
+
+
+App.js
+import React from 'react';
+import Button from './Button';
+import TextBox from './TextBox';
+import Dropdown from './Dropdown';
+function App() {
+return (
+ <div>
+ <h1>Reusable Components in a Form</h1>
+ <form>
+ <div>
+ <TextBox ph="Enter your name..." />
+ </div>
+ <div>
+ <Dropdown
+ options={['MBA', 'MCA', 'BE']}
+ />
+ </div>
+ <div>
+ <Button
+ label="Submit"
+ onClick={() => alert('Form submitted!')}
+ st={{ padding: '10px 20px', backgroundColor: 'blue', color:
+'white' }}
+ />
+ </div>
+ </form>
+ </div>
+);
+}
+export default App;
